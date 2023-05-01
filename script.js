@@ -56,6 +56,8 @@ for(let i=0; i<keySymbols.length; i++){
       if(enterSymbols[i] === "shift"){
         button.classList.toggle('shift_active')
         }  
+      if(enterSymbols[i] === "return")
+      textarea.innerHTML = `${textarea.innerHTML}\n`
     }
   }
 }
