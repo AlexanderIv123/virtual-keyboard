@@ -33,31 +33,48 @@ for(let i=0; i<keySymbols.length; i++){
     button.innerHTML = keySymbols[i];
     if(Array.isArray(keySymbols[i]))
     button.innerHTML = (`${keySymbols[i][0]}<br>${keySymbols[i][1]}`)
-  button.onclick =()=>{
-    if(Array.isArray(enterSymbols[i]) && !document.querySelector('.caps_active') && !document.querySelector('.shift_active')){
-    textarea.textContent += enterSymbols[i][1]
-    }
-    if(Array.isArray(enterSymbols[i]) && (document.querySelector('.caps_active') || document.querySelector('.shift_active'))){
-      textarea.textContent += enterSymbols[i][0]
+    button.onclick =()=>{
+      if(Array.isArray(enterSymbols[i]) && !document.querySelector('.caps_active') && !document.querySelector('.shift_active')){
+      textarea.innerHTML += enterSymbols[i][1]
       }
-    else{
-      if(enterSymbols[i] === "space"){
-      textarea.innerHTML += ' '
-      }
-      if(enterSymbols[i] === "tab"){
-        textarea.innerHTML += '    '
+      if(Array.isArray(enterSymbols[i]) && (document.querySelector('.caps_active') || document.querySelector('.shift_active'))){
+        textarea.innerHTML += enterSymbols[i][0]
         }
-      if(enterSymbols[i] === "caps lock"){
-        button.classList.toggle('caps_active')
-        }  
-      if(enterSymbols[i] === "delete"){
-        textarea.innerHTML = textarea.innerHTML.slice(0, textarea.innerHTML.length-1)
-        }  
-      if(enterSymbols[i] === "shift"){
-        button.classList.toggle('shift_active')
-        }  
-      if(enterSymbols[i] === "return")
-      textarea.innerHTML = `${textarea.innerHTML}\n`
+      else{
+        if(enterSymbols[i] === "space"){
+        textarea.innerHTML += ' '
+        }
+        if(enterSymbols[i] === "tab"){
+          textarea.innerHTML += '    '
+          }
+        if(enterSymbols[i] === "caps lock"){
+          button.classList.toggle('caps_active')
+          }  
+        if(enterSymbols[i] === "delete"){
+          textarea.innerHTML = textarea.innerHTML.slice(0, textarea.innerHTML.length-1)
+          }  
+        if(enterSymbols[i] === "shift"){
+          button.classList.toggle('shift_active')
+          }  
+        if(enterSymbols[i] === "return"){
+        textarea.innerHTML = `${textarea.innerHTML}\n`
+        }
+        if(enterSymbols[i] === "left"){
+        }
+      }
     }
-  }
 }
+
+// const pressButton =()=>{
+//   textarea.innerHTML += `${KeyboardEvent.key}`;
+//   console.log(document.querySelector('textarea'))
+// }
+textarea.addEventListener('keydown', (event)=>{
+  textarea.innerHTML += `${event.key}`;
+  // for(let j=0; j<keySymbols.length; j++){
+  // if(event.key === keySymbols[j]){
+  //   button.innerHTML = keySymbols[j];
+  //   button.classList.add('press_button')
+  // }
+  // }
+})
