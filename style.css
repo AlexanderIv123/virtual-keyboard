@@ -1,0 +1,69 @@
+.textarea{
+ display: block;
+ margin: 0 auto;
+ margin-top: 20px;
+ margin-bottom: 30px;
+ width: 80vw;
+ height: 30vh;
+ background-color:antiquewhite;
+ font-size: 50px;
+} 
+
+.keyboard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90vw;
+  height: 40vh;
+  margin: 0 auto;
+  background-color: rgb(217, 230, 230);
+}
+.button{
+  display: flex;
+  width: 6.5%;
+  height: 19%;
+  background-color: rgb(146, 146, 179);
+  font-size: 1.5vw;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button:nth-child(14),
+.button:nth-child(15){
+  flex-basis: 10%;
+}
+
+.button:nth-child(29),
+.button:nth-child(41){
+  flex-basis: 11.7%;
+}
+
+.button:nth-child(42),
+.button:nth-child(53){
+  flex-basis: 15.1%;
+}
+.button:nth-child(57),
+.button:nth-child(59){
+  flex-basis: 8.2%;
+}
+
+.button:nth-child(58){
+  flex-basis: 34%;
+}
+
+.button:nth-child(62),
+.button:nth-child(63){
+  display: inline;
+  height: 9%;
+  margin: 0px;
+}
+.button:nth-child(63){
+  align-self: flex-end;
+  margin-left: -6.87%;
+  margin-bottom: 4px;
+}
+
+.caps_active{
+  background-color: aquamarine;
+}
