@@ -1,5 +1,4 @@
-// import './style.css';
-// alert("keyBoard Mac Pro 15'")
+alert("keyBoard Mac Pro 15' Please, check my work later! thnx in advance")
 const textarea = document.createElement('textarea')
 textarea.classList.add('textarea')
 document.body.append(textarea)
@@ -35,10 +34,10 @@ for(let i=0; i<keySymbols.length; i++){
     if(Array.isArray(keySymbols[i]))
     button.innerHTML = (`${keySymbols[i][0]}<br>${keySymbols[i][1]}`)
   button.onclick =()=>{
-    if(Array.isArray(enterSymbols[i]) && !document.querySelector('.caps_active')){
+    if(Array.isArray(enterSymbols[i]) && !document.querySelector('.caps_active') && !document.querySelector('.shift_active')){
     textarea.textContent += enterSymbols[i][1]
     }
-    if(Array.isArray(enterSymbols[i]) && document.querySelector('.caps_active')){
+    if(Array.isArray(enterSymbols[i]) && (document.querySelector('.caps_active') || document.querySelector('.shift_active'))){
       textarea.textContent += enterSymbols[i][0]
       }
     else{
@@ -53,6 +52,9 @@ for(let i=0; i<keySymbols.length; i++){
         }  
       if(enterSymbols[i] === "delete"){
         textarea.innerHTML = textarea.innerHTML.slice(0, textarea.innerHTML.length-1)
+        }  
+      if(enterSymbols[i] === "shift"){
+        button.classList.toggle('shift_active')
         }  
     }
   }
