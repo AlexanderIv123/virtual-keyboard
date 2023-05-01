@@ -70,7 +70,12 @@ for(let i=0; i<keySymbols.length; i++){
 //   console.log(document.querySelector('textarea'))
 // }
 textarea.addEventListener('keydown', (event)=>{
+  if(event.key === "Backspace"){
+    textarea.innerHTML = textarea.innerHTML.slice(0, textarea.innerHTML.length-1)
+    }
+   else{
   textarea.innerHTML += `${event.key}`;
+   }
   // for(let j=0; j<keySymbols.length; j++){
   // if(event.key === keySymbols[j]){
   //   button.innerHTML = keySymbols[j];
