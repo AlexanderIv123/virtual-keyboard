@@ -73,5 +73,10 @@
 }
 
 .press_button{
-  background-color: aquamarine;
+  animation: press_button 0.5s;
+}
+
+@keyframes press_button {
+  from {background-color: rgb(217, 230, 230)} to {background-color: aquamarine}
+  from {background-color: aquamarine} to {background-color: rgb(217, 230, 230)}
 }
