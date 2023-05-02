@@ -73,7 +73,7 @@
 }
 
 .press_button{
-  animation: press_button 0.5s;
+  animation: press_button 0.3s;
 }
 
 @keyframes press_button {
