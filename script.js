@@ -71,18 +71,14 @@ for(let i=0; i<keySymbols.length; i++){
 
     textarea.addEventListener('keydown', (event)=>{
       this.button = button;
-      // if(Array.isArray(keySymbols[i])){
       if((event.key.toUpperCase() === keySymbols[i][0]
       ||event.key.toUpperCase() === keySymbols[i][1]
       ||event.key.toUpperCase() === keySymbols[i]
       )){
-        this.button.classList.toggle('press_button')
+        this.button.classList.add('press_button')
+        setTimeout(() => {
+          button.classList.remove('press_button')
+        }, 200);
       }
-    // }
     })
 }
-
-// textarea.addEventListener('keydown', (event)=>{
-
-//   console.log(event.key)
-// })
