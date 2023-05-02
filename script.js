@@ -1,4 +1,4 @@
-alert("keyBoard Mac Pro 15' Please, check my work later! thnx in advance")
+alert("keyBoard MacBook Pro 15' Please, check my work later! thnx in advance")
 const textarea = document.createElement('textarea')
 textarea.classList.add('textarea')
 document.body.append(textarea)
@@ -33,53 +33,46 @@ for(let i=0; i<keySymbols.length; i++){
     button.innerHTML = keySymbols[i];
     if(Array.isArray(keySymbols[i]))
     button.innerHTML = (`${keySymbols[i][0]}<br>${keySymbols[i][1]}`)
-    button.onclick =()=>{
+
+    button.addEventListener('click', ()=>{
       if(Array.isArray(enterSymbols[i]) && !document.querySelector('.caps_active') && !document.querySelector('.shift_active')){
-      textarea.innerHTML += enterSymbols[i][1]
+      textarea.value += enterSymbols[i][1]
       }
       if(Array.isArray(enterSymbols[i]) && (document.querySelector('.caps_active') || document.querySelector('.shift_active'))){
-        textarea.innerHTML += enterSymbols[i][0]
+        textarea.value += enterSymbols[i][0]
         }
       else{
         if(enterSymbols[i] === "space"){
-        textarea.innerHTML += ' '
+        textarea.value += ' '
         }
         if(enterSymbols[i] === "tab"){
-          textarea.innerHTML += '    '
+          textarea.value += '    '
           }
         if(enterSymbols[i] === "caps lock"){
           button.classList.toggle('caps_active')
           }  
         if(enterSymbols[i] === "delete"){
-          textarea.innerHTML = textarea.innerHTML.slice(0, textarea.innerHTML.length-1)
+          console.log(textarea.value.slice(0, textarea.value.length-1))
+          textarea.value = textarea.value.slice(0, textarea.value.length-1)
           }  
         if(enterSymbols[i] === "shift"){
           button.classList.toggle('shift_active')
           }  
         if(enterSymbols[i] === "return"){
-        textarea.innerHTML = `${textarea.innerHTML}\n`
+        textarea.value = `${textarea.value}\n`
         }
         if(enterSymbols[i] === "left"){
         }
       }
-    }
+    })
 }
 
-// const pressButton =()=>{
-//   textarea.innerHTML += `${KeyboardEvent.key}`;
-//   console.log(document.querySelector('textarea'))
-// }
-textarea.addEventListener('keydown', (event)=>{
+textarea.addEventListener('input', (event)=>{
   if(event.key === "Backspace"){
-    textarea.innerHTML = textarea.innerHTML.slice(0, textarea.innerHTML.length-1)
+    textarea.value = textarea.value.slice(0, textarea.value.length-1)
     }
    else{
-  textarea.innerHTML += `${event.key}`;
+    console.log(event.target.value)
+  textarea.value = `${event.target.value}`;
    }
-  // for(let j=0; j<keySymbols.length; j++){
-  // if(event.key === keySymbols[j]){
-  //   button.innerHTML = keySymbols[j];
-  //   button.classList.add('press_button')
-  // }
-  // }
 })
