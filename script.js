@@ -1,4 +1,6 @@
-alert("keyBoard MacBook Pro 15' Please, check my work later! thnx in advance")
+alert("keyBoard MacBook Pro 15' 2016-2019. Please, check my work later! thnx in advance")
+alert('Link for keyboard pict: "https://aliexpress.ru/item/1005002840951272.html?sku_id=12000022421508713&feed_id=20&_randl_currency=RUB&_randl_shipto=RU&sellermenu_hide=true&src=googleweb&albch=dspl&aff_short_key=brxT3bLh&cn=%7Bcampaignid%7D&isdl=y&aff_platform=jvru&utm_medium=cpc&utm_source=google&utm_campaign=%7Bcampaignid%7D&feed_id=20&_randl_currency=RUB&_randl_shipto=RU&sellermenu_hide=true&src=googleweb&albch=dspl&aff_short_key=brxT3bLh&isdl=y&aff_platform=jvru&utm_medium=cpc&utm_source=google&utm_campaign=JVRU_ALI_GOOGLE_WEB_UA_CROSS_CIS(BY)_PERFOMAX&gclid=Cj0KCQjw6cKiBhD5ARIsAKXUdyYS4Sj209xe0mGLQlNGlvaaFaTyiFfVacPoMDp4_nHgdB4GCVvoTeMaAnsSEALw_wcB"')
+
 const textarea = document.createElement('textarea')
 textarea.classList.add('textarea')
 document.body.append(textarea)
@@ -35,6 +37,7 @@ for(let i=0; i<keySymbols.length; i++){
     button.innerHTML = (`${keySymbols[i][0]}<br>${keySymbols[i][1]}`)
 
     button.addEventListener('click', ()=>{
+      this.button = button;
       if(Array.isArray(enterSymbols[i]) && !document.querySelector('.caps_active') && !document.querySelector('.shift_active')){
       textarea.value += enterSymbols[i][1]
       }
@@ -52,8 +55,8 @@ for(let i=0; i<keySymbols.length; i++){
           button.classList.toggle('caps_active')
           }  
         if(enterSymbols[i] === "delete"){
-          console.log(textarea.value.slice(0, textarea.value.length-1))
           textarea.value = textarea.value.slice(0, textarea.value.length-1)
+          console.log(this.button)
           }  
         if(enterSymbols[i] === "shift"){
           button.classList.toggle('shift_active')
@@ -65,14 +68,21 @@ for(let i=0; i<keySymbols.length; i++){
         }
       }
     })
+
+    textarea.addEventListener('keydown', (event)=>{
+      this.button = button;
+      // if(Array.isArray(keySymbols[i])){
+      if((event.key.toUpperCase() === keySymbols[i][0]
+      ||event.key.toUpperCase() === keySymbols[i][1]
+      ||event.key.toUpperCase() === keySymbols[i]
+      )){
+        this.button.classList.toggle('press_button')
+      }
+    // }
+    })
 }
 
-textarea.addEventListener('input', (event)=>{
-  if(event.key === "Backspace"){
-    textarea.value = textarea.value.slice(0, textarea.value.length-1)
-    }
-   else{
-    console.log(event.target.value)
-  textarea.value = `${event.target.value}`;
-   }
-})
+// textarea.addEventListener('keydown', (event)=>{
+
+//   console.log(event.key)
+// })
