@@ -45,14 +45,37 @@ for(let i=0; i<keySymbols.length; i++){
         button.classList.remove('press_button')
       }, 200);
       }
-      if(Array.isArray(enterSymbols[i]) && (document.querySelector('.caps_active') || document.querySelector('.shift_active'))){
+      if(Array.isArray(enterSymbols[i]) && document.querySelector('.shift_active')){
         textarea.value += enterSymbols[i][0]
         this.button.classList.add('press_button')
         setTimeout(() => {
           button.classList.remove('press_button')
         }, 200);
         }
-      else{
+        if(Array.isArray(enterSymbols[i]) && (document.querySelector('.caps_active')) && !document.querySelector('.shift_active')){
+          if(enterSymbols[i][1] === "1"|| enterSymbols[i][1] === "2"|| enterSymbols[i][1] === "3"||
+             enterSymbols[i][1] === "4"|| enterSymbols[i][1] === "5"|| enterSymbols[i][1] === "6"||
+             enterSymbols[i][1] === "6"|| enterSymbols[i][1] === "7"|| enterSymbols[i][1] === "8"||
+             enterSymbols[i][1] === "9"|| enterSymbols[i][1] === "0"|| enterSymbols[i][1] === "`"||
+             enterSymbols[i][1] === "-"|| enterSymbols[i][1] === "="|| enterSymbols[i][1] === "["||
+             enterSymbols[i][1] === "]"|| enterSymbols[i][1] === "\\" || enterSymbols[i][1] === ";"||
+             enterSymbols[i][1] === "'"|| enterSymbols[i][1] === ","|| enterSymbols[i][1] === "."|| enterSymbols[i][1] === "/"
+             ){
+            textarea.value += enterSymbols[i][1]
+            this.button.classList.add('press_button')
+            setTimeout(() => {
+              button.classList.remove('press_button')
+            }, 200);
+          }
+          else{
+          textarea.value += enterSymbols[i][0]
+          this.button.classList.add('press_button')
+          setTimeout(() => {
+            button.classList.remove('press_button')
+          }, 200);
+          }
+         }
+       else{
         if(enterSymbols[i] === " "){
         textarea.value += ' '
         this.button.classList.add('press_button')
