@@ -23,22 +23,6 @@ const enterSymbols = [
   'Enter', 'Shift', ['Z', 'z'], ['X', 'x'], ['C', 'c'], ['V', 'v'], ['B', 'b'], ['N', 'n'],
   ['M', 'm'], ['<', ','], ['>', '.'], ['?', '/'], 'Shift', 'fn', 'Control', 'Alt', 'Meta', ' ', 'Meta', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
 
-const keySymbolsRu = [['~', '`'], ['!', '1'], ['@', '2'], ['#', '3'], ['$', '4'], ['%', '5'], ['^', '6'],
-  ['&', '7'], ['*', '8'], ['(', '9'], [')', '0'], ['_', '-'], ['+', '='], 'delete', 'tab', 'Q', 'W', 'E',
-  'R', 'T', 'Y', 'U', 'I', 'O', 'P', ['{', '['], ['}', ']'], ['|', '\\'], 'caps lock', 'A', 'S', 'D', 'F',
-  'G', 'H', 'J', 'K', 'L', [':', ';'], ['"', '\''], 'return', 'shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M',
-  ['<', ','], ['>', '.'], ['?', '/'], 'shift', 'fn', 'control', 'option', 'command', 'space', 'command',
-  'option', 'left', 'up', 'down', 'right'];
-
-const enterSymbolsRu = [
-  ['~', '`'], ['!', '1'], ['@', '2'], ['#', '3'], ['$', '4'], ['%', '5'], ['^', '6'], ['&', '7'],
-  ['*', '8'], ['(', '9'], [')', '0'], ['_', '-'], ['+', '='], 'Backspace', 'Tab', ['Q', 'q'],
-  ['W', 'w'], ['E', 'e'], ['R', 'r'], ['T', 't'], ['Y', 'y'], ['U', 'u'], ['I', 'i'], ['O', 'o'],
-  ['P', 'p'], ['{', '['], ['}', ']'], ['|', '\\'], 'CapsLock', ['A', 'a'], ['S', 's'], ['D', 'd'],
-  ['F', 'f'], ['G', 'g'], ['H', 'h'], ['J', 'j'], ['K', 'k'], ['L', 'l'], [':', ';'], ['"', "'"],
-  'Enter', 'Shift', ['Z', 'z'], ['X', 'x'], ['C', 'c'], ['V', 'v'], ['B', 'b'], ['N', 'n'],
-  ['M', 'm'], ['<', ','], ['>', '.'], ['?', '/'], 'Shift', 'fn', 'Control', 'Alt', 'Meta', ' ', 'Meta', 'Alt', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
-
 textarea.addEventListener('keydown', (event) => {
   if (event.getModifierState('CapsLock')) {
     console.log('2');
